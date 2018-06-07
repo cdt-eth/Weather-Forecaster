@@ -32,9 +32,8 @@ class App extends Component {
     // gather the data from the call and store it as JSON
     const data = await api_call.json();
 
-    console.log(data);
-
     if (city && country) {
+      console.log(data);
       this.setState({
         city: data.name,
         country: data.sys.country,
@@ -42,6 +41,15 @@ class App extends Component {
         humidity: data.main.humidity,
         description: data.weather[0].description,
         error: ''
+      });
+    } else {
+      this.setState({
+        temperature: undefined,
+        city: undefined,
+        country: undefined,
+        humidity: undefined,
+        description: undefined,
+        error: 'Please enter a value'
       });
     }
   };

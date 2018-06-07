@@ -4,8 +4,7 @@ class Titles extends Component {
   render() {
     return (
       <Fragment>
-        <div>Hello</div>
-        <div>World</div>
+        <div>Title Component</div>
       </Fragment>
     );
   }
