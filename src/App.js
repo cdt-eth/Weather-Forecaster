@@ -35,9 +35,9 @@ class App extends Component {
     console.log(data);
 
     this.setState({
-      temperature: data.main.temp,
       city: data.name,
       country: data.sys.country,
+      temperature: data.main.temp,
       humidity: data.main.humidity,
       description: data.weather[0].description,
       error: ''
@@ -49,7 +49,14 @@ class App extends Component {
       <Fragment>
         <Titles />
         <Form getWeather={this.getWeather} />
-        <Weather />
+        <Weather
+          city={this.state.city}
+          country={this.state.country}
+          temperature={this.state.temperature}
+          humidity={this.state.humidity}
+          description={this.state.description}
+          error={this.state.error}
+        />
       </Fragment>
     );
   }
