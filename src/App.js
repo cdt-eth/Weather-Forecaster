@@ -12,9 +12,12 @@ class App extends Component {
     // prevent the full page reload
     e.preventDefault();
 
+    const city = e.target.elements.city.value;
+    const country = e.target.elements.country.value;
+
     // async api call
     const api_call = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=Manchester,uk&appid=${API_KEY}&units=metric`
+      `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=metric`
     );
 
     // gather the data from the call and store it as JSON
