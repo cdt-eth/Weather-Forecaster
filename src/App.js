@@ -8,6 +8,15 @@ import './App.css';
 const API_KEY = '53156c8bfca9a7c97cbf1e0d210c8d3b';
 
 class App extends Component {
+  state = {
+    temperature: undefined,
+    city: undefined,
+    country: undefined,
+    humidity: undefined,
+    description: undefined,
+    error: undefined
+  };
+
   getWeather = async e => {
     // prevent the full page reload
     e.preventDefault();
