@@ -33,7 +33,6 @@ class App extends Component {
     const data = await api_call.json();
 
     if (city && country) {
-      console.log(data);
       this.setState({
         city: data.name,
         country: data.sys.country,
