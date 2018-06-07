@@ -1,8 +1,9 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import Form from './components/Form';
 import Titles from './components/Titles';
 import Weather from './components/Weather';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // my personal api key
 const API_KEY = '53156c8bfca9a7c97cbf1e0d210c8d3b';
@@ -55,18 +56,30 @@ class App extends Component {
 
   render() {
     return (
-      <Fragment>
-        <Titles />
-        <Form getWeather={this.getWeather} />
-        <Weather
-          city={this.state.city}
-          country={this.state.country}
-          temperature={this.state.temperature}
-          humidity={this.state.humidity}
-          description={this.state.description}
-          error={this.state.error}
-        />
-      </Fragment>
+      <div>
+        <div className="wrapper">
+          <div className="main">
+            <div className="container">
+              <div className="row">
+                <div className="col-xs-5 title-container">
+                  <Titles />
+                </div>
+                <div className="col-xs-7 form-container">
+                  <Form getWeather={this.getWeather} />
+                  <Weather
+                    city={this.state.city}
+                    country={this.state.country}
+                    temperature={this.state.temperature}
+                    humidity={this.state.humidity}
+                    description={this.state.description}
+                    error={this.state.error}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     );
   }
 }
