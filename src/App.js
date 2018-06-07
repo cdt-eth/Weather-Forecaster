@@ -34,14 +34,16 @@ class App extends Component {
 
     console.log(data);
 
-    this.setState({
-      city: data.name,
-      country: data.sys.country,
-      temperature: data.main.temp,
-      humidity: data.main.humidity,
-      description: data.weather[0].description,
-      error: ''
-    });
+    if (city && country) {
+      this.setState({
+        city: data.name,
+        country: data.sys.country,
+        temperature: data.main.temp,
+        humidity: data.main.humidity,
+        description: data.weather[0].description,
+        error: ''
+      });
+    }
   };
 
   render() {
