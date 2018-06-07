@@ -3,10 +3,11 @@ import React, { Component, Fragment } from 'react';
 class Form extends Component {
   render() {
     return (
-      <Fragment>
-        <div>Hello</div>
-        <div>World</div>
-      </Fragment>
+      <form onSubmit={this.props.getWeather}>
+        <input type="text" name="city" placeholder="city" />
+        <input type="text" name="country" placeholder="country" />
+        <button> Get Weather </button>
+      </form>
     );
   }
 }

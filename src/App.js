@@ -8,21 +8,27 @@ import './App.css';
 const API_KEY = '53156c8bfca9a7c97cbf1e0d210c8d3b';
 
 class App extends Component {
-  getWeather = async () => {
+  getWeather = async e => {
+    // prevent the full page reload
+    e.preventDefault();
+
+    // async api call
     const api_call = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=metric`
+      `http://api.openweathermap.org/data/2.5/weather?q=Manchester,uk&appid=${API_KEY}&units=metric`
     );
 
     // gather the data from the call and store it as JSON
     const data = await api_call.json();
+
+    console.log(data);
   };
 
   render() {
     return (
       <Fragment>
         <Titles />
+        <Form getWeather={this.getWeather} />
         <Weather />
-        <Form />
       </Fragment>
     );
   }
